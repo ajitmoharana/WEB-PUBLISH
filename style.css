@@ -13,7 +13,6 @@ body {
     color: var(--dark-color);           
     line-height: 1.6;
     margin: 0;
-    
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,27 +41,46 @@ nav {
     padding: 20px 0;
 }
 
+/* Logo with image */
 .logo {
-    font-size: 24px;
+    font-size: 40px;
     font-weight: 700;
     color: var(--primary-color);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+.logo-img {
+    width: 50px;  /* slightly bigger for clarity */
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%; /* makes image circular */
+}
+
+/* Nav links styled as rounded pill buttons */
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 15px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--dark-color);
-    font-weight: 500;
-    transition: color 0.3s;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 40px; /* pill shape */
+    background-color: rgba(255, 215, 0, 0.2); /* subtle gold background */
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-links a:hover {
-    color: var(--primary-color);
+    color: rgb(8, 8, 8);
+    background-color: var(--primary-color);
 }
 
 .hero {
@@ -85,8 +103,10 @@ nav {
 }
 
 .about {
-    padding: 80px 0;
+    padding: 40px 0;
     margin-top: 60px; /* to compensate for fixed header */
+    border-radius: 40px; /* rounded corners for about section */
+    background-color: rgba(255, 255, 255, 0.1); /* subtle background */
 }
 
 .section-title {
@@ -106,6 +126,15 @@ nav {
 .about-text {
     flex: 1;
     min-width: 300px;
+    /* Keep headings in gold */
+    color: var(--dark-color);
+}
+
+/* Paragraph text inside About section set to black and bigger font */
+.about-text p {
+    color: rgb(0, 0, 0);
+    font-size: 18px; /* increased font size */
+    line-height: 1.5; /* better readability */
 }
 
 .about-image {
@@ -125,6 +154,7 @@ nav {
 .skills {
     padding: 80px 0;
     background-color: var(--light-color);
+    border-radius: 40px; /* rounded corners */
 }
 
 .skills-container {
@@ -157,6 +187,7 @@ nav {
 
 .projects {
     padding: 80px 0;
+    border-radius: 40px; /* rounded corners */
 }
 
 .projects-grid {
@@ -208,6 +239,7 @@ nav {
     padding: 80px 0;
     background-color: var(--light-color);
     text-align: center;
+    border-radius: 40px; /* rounded corners */
 }
 
 .contact-form {
@@ -244,12 +276,12 @@ textarea.form-control {
 
 .btn {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 12px 40px;
     background-color: var(--primary-color);
-    color: rgb(8, 8, 8);
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s;
