@@ -13,10 +13,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Contact form submission handler
 const contactForm = document.querySelector('.contact-form');
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    console.log('Form submitted:', Object.fromEntries(formData.entries()));
-    alert('Thank you for your message! I will get back to you soon.');
-    this.reset();
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+
+        fetch(this.action, {
+            method: this.method,
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            if (response.ok) {
+                // ✅ Redirect to thankyou.html after successful submission
+                window.location.href = "thank-you.html";
+            } else {
+                alert("Oops! Something went wrong. Please try again.");
+            }
+        })
+        .catch(() => {
+            alert("Unable to submit form. Please check your connection.");
+        });
+    });
+}
